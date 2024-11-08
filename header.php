@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                 <!-- // Vérifie si l'utilisateur est connecté -->
-                <?php if (!isset($_SESSION['user_id'])) { ?>
+                <?php if (!isset($_SESSION['identifiant'])) { ?>
                         <li class="nav-item  btn btn-danger rounded-pill ">
                             <!-- <a class="nav-link text-light" href="login.php">Accéder à mon compte</a> -->
                             <a class="nav-link text-light" href="connexion.php">Accéder à mon compte</a>
@@ -47,7 +47,7 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <?php $_SESSION["name"] ?>
+                                <?php $_SESSION["identifiant"] ?>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

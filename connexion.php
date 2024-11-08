@@ -5,27 +5,27 @@ require_once('header.php');
 
 
 
-$bdd= new PDO("mysql: host=127.0.0.1;dbname=attijariwafa_bank","root","");  
+// $bdd= new PDO("mysql: host=127.0.0.1;dbname=attijariwafa_bank","root","");  
 if (isset($_POST["submit"])) {
     // if (!empty($_POST["email"]) AND !empty($_POST["password"]) ) {
-    if (!empty($_POST["email"]) AND !empty($_POST["password"]) ) {
-		$email=htmlspecialchars($_POST["email"]);
+    if (!empty($_POST["identifiant"]) AND !empty($_POST["password"]) ) {
+		$identifiant=$_POST["identifiant"];
 		$password=sha1($_POST["password"]);
 
 		if (filter_var($email,FILTER_VALIDATE_EMAIL)) {
 
-				$requser=$bdd->prepare("SELECT * FROM users WHERE email=? AND password=?");
-				$requser->execute(array($email, $password));
-				$userexiste=$requser->rowCount();
+				// $requser=$bdd->prepare("SELECT * FROM users WHERE email=? AND password=?");
+				// $requser->execute(array($email, $password));
+				// $userexiste=$requser->rowCount();
 
 					if ($userexiste == 1) {
-						$userinfo=$requser->fetch();
-						$_SESSION["user_id"]=$userinfo["id"];
-						$_SESSION["name"]=$userinfo["name"];
-						$_SESSION["identifiant"]=$userinfo["identifiant"];
-						$_SESSION["email"]=$userinfo["email"];
+						// $userinfo=$requser->fetch();
+						// $_SESSION["user_id"]=$userinfo["id"];
+						// $_SESSION["name"]=$userinfo["name"];
+						$_SESSION["identifiant"]=$identifiant;
+						// $_SESSION["email"]=$userinfo["email"];
 						// header("Location:chancebook.php?id=".$_SESSION["id"]."/".$_SESSION["prenom"]);
-						header("Location:dashboard.php?id=".$_SESSION["id"]);
+						header("Location:dashboard.php?identifiant=".$_SESSION["identifiant"]);
 						// il ya aussi location :chanceprof.php?
 
 
